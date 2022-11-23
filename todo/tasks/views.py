@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .models import Truck
 from .forms import TruckForm
-import json
 from django.db.models import F
 
 
