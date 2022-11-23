@@ -1,0 +1,35 @@
+<html>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<body>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Выполнить">
+</form>
+
+<table>
+    <tr>
+        <th>Бортовой номер</th>
+        <th>Модель</th>
+        <th>Макс. грузоподъёмность, т</th>
+        <th>Текущий вес</th>
+        <th>Перегруз, %</th>
+    </tr>
+    {% for i in tasks %}
+         <tr>
+             <td>{{ i.side_number }}</td>
+             <td>{{ i.truck_model.name }}</td>
+             <td>{{ i.truck_model.load_capacity }}</td>
+             <td>{{ i.current_cargo }}</td>
+             <td>{{ i.overload }}</td>
+         </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
+
